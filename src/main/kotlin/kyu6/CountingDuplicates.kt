@@ -1,14 +1,9 @@
 package kyu6
 
 fun duplicateCount(text: String): Int {
-    val map: MutableMap<Char, Boolean> = HashMap<Char, Boolean>()
-    val textLower = text.lowercase()
-    for(c in textLower) {
-        if(!map.containsKey(c)) {
-            map[c] = false
-        } else {
-            map[c] = true
-        }
+    val map: MutableMap<Char, Boolean> = HashMap()
+    for(c in text.lowercase()) {
+        map[c] = map.containsKey(c)
     }
     return map.count{(_, v) -> v}
 }
